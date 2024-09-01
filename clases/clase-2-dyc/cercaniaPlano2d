@@ -1,0 +1,19 @@
+def closest_pairs(P):
+  construimos px y py (O(n log n))
+  p0, p1 = closest_pairs_rec(px, py)
+  return p0, p1
+
+
+def closest_pairs_rec(px, py):
+  if len(px) <= 3: return el minimo de comparar  cada punto
+  construir Qx, Qy, Rx, Ry (O(n))
+  q0, q1 = closest_pairs_rec(Qx, Qy)
+  r0, r1 = closest_pairs_rec(Rx, Ry)
+  d = min(dist(q0, q1), dist(r0, r1))
+  x* = maxima coordenada x de Qx
+  S = puntos de P que estan a distancia <= d de la recta x = x*
+  Construir Sy (O(n))
+  por cada punto s de Sy computar distancia contra los siguientes 15 puntos 
+    quedarse con s y s' que minimizan esa distancia 
+  if dist(s, s') < d: return s, s'
+    elif dist(q0, q1) < dist(r0, r1): return q0, q1

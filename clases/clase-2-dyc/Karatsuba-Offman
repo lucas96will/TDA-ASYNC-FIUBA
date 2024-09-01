@@ -1,0 +1,11 @@
+def multiplicacionBigInt(x, y)
+  si largo de x e y son pequenios, devolvemos x*y, sino:
+  x = x1 * 2^(n/2) + x0
+  y = y1 * 2^(n/2) + y0
+  p = multiplicacionBigInt(x1 + x0, y1 + y0)
+  x0y0 = multiplicacionBigInt(x0, y0)
+  x1y1 = multiplicacionBigInt(x1, y1)
+  return x1y1 * 2^n + (p - x1y1 - x0y0) * 2(n/2) + x0y0
+
+T(n) = 3T(n/2) + O(n) -> O(n^log_2(3)) ~= O(n^1,6)
+
