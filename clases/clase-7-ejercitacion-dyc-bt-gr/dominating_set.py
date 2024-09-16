@@ -15,9 +15,17 @@ def dominating_set_min(grafo):
 
 def dominating_set_rec_completo(grafo, vertices, indice, solucion_parcial, solucion_optima):
     
-    dominating_set_rec(grafo, vertices, indice, solucion_parcial, solucion_optima)
+    if indice == len(vertices):
+        return set(solucion_parcial) if len(solucion_parcial) < len(solucion_optima) else solucion_optima
+ 
+    v = vertices[indice]
+    solucion_parcial.remove(v)
+    if es_dominating_set(grafo, solucion_parcial):
+        solucion_optima = dominating_set_rec_completo(grafo, vertices, indice+1, solucion_parcial, solucion_optima)
+   
+    solucion_parcial.add(v)
 
-    dominating_set_rec(grafo, vertices, indice, solucion_parcial, solucion_optima )
+    return dominating_set_rec_completo(grafo, vertices, indice+1, solucion_parcial, solucion_optima)
 
     
 def dominating_set_rec_vacio(grafo, vertices, indice, solucion_parcial, solucion_optima):
@@ -85,4 +93,5 @@ if __name__ == "__main__":
     print("Solucion con cantidad de elementos: ", len(solucion))
     print(solucion)
     assert len(solucion) == 2, "el set dominante es 2 elementos"
+
     print("El set minimo dominante tiene:", len(solucion), " elementos")
