@@ -62,7 +62,19 @@ def es_dominating_set(grafo, solucion_parcial):
             return False
     return True
 
-
+def es_dominating_set_optimizado(grafo, solucion_parcial, quitado):
+    for v in grafo.adyacentes(quitado):
+        if v in solucion_parcial:
+            quitado_es_dominado = True
+            continue
+        tiene_adyacente = False
+        for w in grafo.adyacentes(v):
+            if w in solucion_parcial:
+                tiene_adyacente = True
+                break
+        if tiene_adyacente == False:
+            return False
+    return quitado_es_dominado
 
 if __name__ == "__main__":
 
