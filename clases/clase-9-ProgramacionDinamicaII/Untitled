@@ -1,0 +1,15 @@
+# Ejercicios: Juan el vago
+# Juan es ambicioso pero también algo vago. Dispone de varias ofertas de trabajo diarias, 
+# pero no quiere trabajar dos días seguidos. Dado un arreglo con el monto esperado a ganar 
+# cada día, determinar por programación dinámica el máximo monto a ganar, sabiendo que no 
+# aceptará trabajar dos días seguidos.
+#
+# Si Juan quiere planificar su semana, tendríamos un arreglo con los montos
+# esperados para los 5 días laborables. ¿Cuales son los mejores días en los que 
+# Juan puede trabajar respetando nuestra sagrada ley de mínimo esfuerzo? 
+
+
+
+
+if __name__ == "__main__":
+
